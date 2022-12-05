@@ -4,3 +4,6 @@ node_modules
 !.env.example
 yarn.lock
 .vscode
+coverage/
+coverage/clover.xml
+coverage/lcov-report/src/services/hotels-service/index.ts.html
