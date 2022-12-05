@@ -9,14 +9,12 @@ import supertest from "supertest";
 import {
   createEnrollmentWithAddress,
   createUser,
-  createTicketType,
   createTicket,
   createPayment,
-  generateCreditCardData,
   createTicketTypeWithHotel,
   createTicketTypeRemote,
   createHotel,
-  createRoomWithHotelId,
+  createRoom,
 } from "../factories";
 import { cleanDb, generateValidToken } from "../helpers";
 
@@ -198,7 +196,7 @@ describe("GET /hotels/:hotelId", () => {
       //TODO factory
       const createdHotel = await createHotel();
 
-      const createdRoom = await createRoomWithHotelId(createdHotel.id);
+      const createdRoom = await createRoom(createdHotel.id, 3);
 
       const response = await server.get(`/hotels/${createdHotel.id}`).set("Authorization", `Bearer ${token}`);
 
